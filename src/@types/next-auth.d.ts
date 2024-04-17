@@ -5,6 +5,11 @@ declare module 'next-auth' {
     id: string
     name: string
     email: string
+    username: string
     avatar_url: string
+  }
+
+  interface Session { 
+    user: User
   }
 }
