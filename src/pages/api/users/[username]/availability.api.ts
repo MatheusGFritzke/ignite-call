@@ -15,10 +15,11 @@ export default async function handler(
   const username = String(req.query.username)
   const { date, timezoneOffSet } = req.query
 
-  if (!date || !timezoneOffSet)
+  if (!date || !timezoneOffSet) {
     return res
       .status(400)
       .json({ message: 'Date or timezoneOffSet not provided.' })
+  }
 
   const user = await prisma.user.findUnique({
     where: { username },
